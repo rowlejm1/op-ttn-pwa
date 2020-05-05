@@ -2,10 +2,10 @@ const staticCacheName = 'site-static-v01';
 const dynamicCacheName = 'site-dynamic-v01';
 const assets = [
     '/',
-    'index.ejs',
-    'fallback.ejs',
-    'add-device.ejs',
-    '/javascripts/app.js',
+    '/views/index.hbs',
+    '/views/fallback.hbs',
+    '/views/add-device.hbs',
+    '/javascripts/loader.js',
     '/javascripts/ui.js',
     '/javascripts/auth.js',
     '/javascripts/materialize.min.js',
