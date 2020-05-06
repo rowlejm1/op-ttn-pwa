@@ -24,6 +24,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 //---------------------
 // Routes
 //---------------------
+app.get("/manifest.json", function(req,res) {
+  console.log("PRE-GOT")
+  res.header("Content-Type", "application/manifest+json");
+  res.sendFile(path.join(__dirname,"manifest.json"));
+  console.log("GOT")
+})
+
+app.get("/loader.js", function(req,res) {
+  res.header("Content-Type", "text/javascript");
+  res.sendFile(path.join(__dirname,"loader.js"));
+});
+
+app.get("/sw.js", function(req,res) {
+  res.header("Content-Type", "text/javascript");
+  res.sendFile(path.join(__dirname,"sw.js"));
+});
+
 require('./routes/index')(app);
 require('./routes/about')(app);
 require('./routes/contact')(app);

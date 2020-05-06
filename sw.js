@@ -1,19 +1,7 @@
-const staticCacheName = 'site-static-v01';
-const dynamicCacheName = 'site-dynamic-v01';
+const staticCacheName = 'site-static-v02';
+const dynamicCacheName = 'site-dynamic-v02';
 const assets = [
-    '/',
-    '/views/index.hbs',
-    '/views/fallback.hbs',
-    '/views/add-device.hbs',
-    '/javascripts/loader.js',
-    '/javascripts/ui.js',
-    '/javascripts/auth.js',
-    '/javascripts/materialize.min.js',
-    '/stylesheets/styles.css',
-    '/stylesheets/materialize.min.css',
-    '/images/dish.png',
-    'https://fonts.googleapis.com/icon?family=Material+Icons',
-    'https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
+    '/'
 ];
 
 // cache size limit function

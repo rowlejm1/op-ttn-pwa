@@ -1,7 +1,7 @@
 {
     "name": "JoJo's Kitchen",
     "short_name": "JKitchen",
-    "start_url": "https://serene-bastion-39630.herokuapp.com/",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#EFA7D0",
     "theme_color": "#B7367F",
