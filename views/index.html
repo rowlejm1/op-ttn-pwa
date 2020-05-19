@@ -8,8 +8,10 @@
   <link type="text/css" href="/stylesheets/materialize.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" href="/stylesheets/styles.css" rel="stylesheet">
+  <link rel="manifest" href="/javascripts/manifest.webmanifest">
+  
   <script type="text/javascript" src="/javascripts/materialize.min.js"></script>
-  <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+  
   <!-- ios support -->
   <link rel="apple-touch-icon" href="/images/icons/icon-96x96.png">
   <meta name="apple-mobile-web-app-status-bar" content="#28468C">
@@ -70,14 +72,6 @@
       <i class="material-icons">check</i>
     </a>
   </div>
-
-  <!-- TEST BUTTON FOR STORING A REFRESH TOKEN
-  <div class="center">
-    <a class="btn-floating btn-small add-btn" id="test-btn">
-      <i class="material-icons">warning</i>
-    </a>
-  </div>
-  -->
 
   <!-- add recipe side nav -->
   <div id="side-form" class="sidenav side-form">
@@ -162,6 +156,7 @@
   firebase.analytics();
   </script>
   <script src="/loader.js"></script>
+  <script src="/javascripts/pwa.js"></script>
   <script src="/javascripts/db.js"></script>
   <script src="/javascripts/ui.js"></script>
   <script src="/javascripts/auth.js"></script>

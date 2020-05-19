@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v05';
-const dynamicCacheName = 'site-dynamic-v05';
+const staticCacheName = 'site-static-v06';
+const dynamicCacheName = 'site-dynamic-v06';
 const assets = [
     '/',
     '/loader.js',

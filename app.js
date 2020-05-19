@@ -4,16 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var hbs = require('express-handlebars');
 
 var app = express();
 
 app.use(cors());
 
 // view engine setup
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -24,12 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //---------------------
 // Routes
 //---------------------
-app.get("/manifest.webmanifest", function(req,res) {
-  console.log("PRE-GOT")
-  res.header("Content-Type", "application/manifest+json");
-  res.sendFile(path.join(__dirname,"manifest.json"));
-  console.log("GOT");
-})
 
 app.get("/loader.js", function(req,res) {
   res.header("Content-Type", "text/javascript");
@@ -41,9 +34,21 @@ app.get("/sw.js", function(req,res) {
   res.sendFile(path.join(__dirname,"sw.js"));
 });
 
-require('./routes/index')(app);
-require('./routes/about')(app);
-require('./routes/contact')(app);
+app.get("/", function(req,res) {
+  res.sendFile(path.join(__dirname,"views/index.html"));
+});
+
+app.get("/about", function(req,res) {
+  res.sendFile(path.join(__dirname,"views/about.html"));
+});
+
+app.get("/contact", function(req,res) {
+  res.sendFile(path.join(__dirname,"views/contact.html"));
+});
+
+//require('./routes/index')(app);
+//require('./routes/about')(app);
+//require('./routes/contact')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,7 +63,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.sendFile(path.join(__dirname,"views/error.html"));
 });
 
 module.exports = app;
