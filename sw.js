@@ -1,7 +1,16 @@
-const staticCacheName = 'site-static-v02';
-const dynamicCacheName = 'site-dynamic-v02';
+const staticCacheName = 'site-static-v05';
+const dynamicCacheName = 'site-dynamic-v05';
 const assets = [
-    '/'
+    '/',
+    '/loader.js',
+    '/javascripts/ui.js',
+    '/javascripts/auth.js',
+    '/javascripts/materialize.min.js',
+    '/stylesheets/styles.css',
+    '/stylesheets/materialize.min.css',
+    '/images/dish.png',
+    'https://fonts.googleapis.com/icon?family=Material+Icons',
+    'https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'
 ];
 
 // cache size limit function
@@ -31,7 +40,7 @@ self.addEventListener('activate', evt => {
     console.log('service worker has been activated');
     evt.waitUntil(
         caches.keys().then(keys => {
-            //console.log(keys);
+            console.log(keys);
             return Promise.all(keys
                 .filter(key => key !== staticCacheName && key !== dynamicCacheName)
                 .map(key => caches.delete(key))    
@@ -53,8 +62,8 @@ self.addEventListener('fetch', evt => {
                     })
                 });
             }).catch(() => {
-                if(evt.request.url.indexOf('.ejs') > -1){
-                    return caches.match('fallback.ejs');
+                if(evt.request.url.indexOf('.hbs') > -1){
+                    return caches.match('fallback.hbs');
                 }
             })
         );

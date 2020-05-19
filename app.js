@@ -24,11 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //---------------------
 // Routes
 //---------------------
-app.get("/manifest.json", function(req,res) {
+app.get("/manifest.webmanifest", function(req,res) {
   console.log("PRE-GOT")
   res.header("Content-Type", "application/manifest+json");
   res.sendFile(path.join(__dirname,"manifest.json"));
-  console.log("GOT")
+  console.log("GOT");
 })
 
 app.get("/loader.js", function(req,res) {
