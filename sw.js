@@ -62,8 +62,8 @@ self.addEventListener('fetch', evt => {
                     })
                 });
             }).catch(() => {
-                if(evt.request.url.indexOf('.hbs') > -1){
-                    return caches.match('fallback.hbs');
+                if(evt.request.url.indexOf('.html') > -1){
+                    return caches.match('fallback.html');
                 }
             })
         );

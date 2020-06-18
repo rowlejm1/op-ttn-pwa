@@ -42,6 +42,7 @@ addApplication.addEventListener('submit', (e) => {
     let dbRefreshToken = doc.data().token;
     console.log(doc.data().token);
 
+    //GET NEW TOKENS
     fetch(`https://account.thethingsnetwork.org/users/token`,{
       method: "post",
       headers: {
@@ -66,6 +67,7 @@ addApplication.addEventListener('submit', (e) => {
       // UPDATE DB WITH REFRESH TOKEN
       updateRefreshToken(refresh_token);
 
+      //POST NEW APP
       fetch(`https://account.thethingsnetwork.org/applications`,{
         method: "post",
         headers: {
@@ -78,7 +80,7 @@ addApplication.addEventListener('submit', (e) => {
         }) 
       }).then(response => response.json())
       .then(d => {
-        console.log(d) //was the creation of a new app successful?????????
+        console.log(d) //was the creation of a new app successful?
       });
     })
   })
